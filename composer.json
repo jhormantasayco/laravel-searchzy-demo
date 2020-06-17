@@ -10,7 +10,6 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
-        "jhormantasayco/drozen": "^1.0",
         "jhormantasayco/laravel-searchzy": "^1.0",
         "laravelcollective/html": "^6.1",
         "laravel/framework": "^6.2",
