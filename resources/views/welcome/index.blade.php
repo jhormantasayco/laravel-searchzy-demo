@@ -19,7 +19,6 @@
                     <div class="col-sm-6">
                         <div class="form-group {{ class_active(${config('searchzy.keyword')}) }}">
                             <label class="block">Buscar</label>
-                            <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
                             {!! Form::text(config('searchzy.keyword'), ${config('searchzy.keyword')}, [
                                 'class'       => 'form-control ',
                                 'placeholder' => 'Buscar a un usuario por su nombre, dni, telefono, correo electrónico, titulo o descripción de sus posts'
