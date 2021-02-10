@@ -13,7 +13,7 @@ return [
     |
     */
     'app' => [
-        'title'  => 'Laravel Searchzy DEMO',
+        'title'  => 'Laravel Searchzy DEMO - @jhormantasayco',
         'name'   => 'Laravel Searchzy',
         'github' => 'https://github.com/jhormantasayco/laravel-searchzy'
     ],

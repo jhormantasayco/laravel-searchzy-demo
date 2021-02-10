@@ -1,6 +1,12 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioTableSeeder extends Seeder
 {
@@ -12,16 +18,12 @@ class UsuarioTableSeeder extends Seeder
     public function run(){
 
     	DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
-
         DB::table('usuarios')->truncate();
-
         DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
 
-        factory(App\Models\Usuario::class, 1000)->create()->each(function ($oUsuario) {
-
-            $oUsuario->posts()->saveMany(
-                factory(App\Models\Post::class, rand(1, 5))->make()
-            );
-        });
+        $user = User::factory()
+            ->count(1000)
+            ->has(Post::factory()->count(rand(1, 5)), 'posts')
+            ->create();
     }
 }

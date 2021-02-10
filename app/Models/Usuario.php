@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Jhormantasayco\LaravelSearchzy\Searchzy;
 
 class Usuario extends Authenticatable
 {
-    use Notifiable, Searchzy;
+    use HasFactory, Notifiable, Searchzy;
 
     /**
      * The database table used by the model.
@@ -49,30 +50,6 @@ class Usuario extends Authenticatable
     ];
 
     /**
-     * The attributes that are searchable.
-     *
-     * @var array
-     */
-    protected $searchable = [
-        'nombre'      => 'name',
-        'dni'         => 'code',
-        'phone'       => 'phone',
-        'email'       => 'email',
-        'post'        => 'posts:title',
-        'descripcion' => 'posts:description',
-    ];
-
-    /**
-     * The attributes that are filterable.
-     *
-     * @var array
-     */
-    protected $filterable = [
-        'rol_id'       => 'role_id',
-        //'categoria_id' => 'posts:category_id',
-    ];
-
-    /**
      * The attributes that should be cast to native types.
      *
      * @var array
@@ -80,6 +57,36 @@ class Usuario extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The attributes that are searchable via method.
+     *
+     * @return array
+     */
+    public function searchableInputs(){
+
+        return [
+            'nombre'      => 'name',
+            'dni'         => 'code',
+            'phone'       => 'phone',
+            'email'       => 'email',
+            'post'        => 'posts:title',
+            'descripcion' => 'posts:description',
+        ];
+    }
+
+    /**
+     * The attributes that are filterable via method.
+     *
+     * @return array
+     */
+    public function filterableInputs(){
+
+        return [
+            'rol_id'       => 'role_id',
+            //'categoria_id' => 'posts:category_id',
+        ];
+    }
 
     /**
      * Retorna los posts del usuario.
