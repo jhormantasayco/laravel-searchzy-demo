@@ -36,4 +36,16 @@ class WelcomeController extends Controller
     	return view('welcome.index', compact('params', 'oUsuarios'));
    	}
 
+    /**
+     * Show the application index.
+     *
+     * @return Response
+     */
+    public function livewire(){
+
+        $params = Usuario::searchzyInputs();
+
+        return view('welcome.livewire', compact('params'));
+    }
+
 }

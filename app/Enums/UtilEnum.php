@@ -10,7 +10,7 @@ final class UtilEnum {
      * @var mixed
      */
     public static $ARR_ROLES = [
-        '' => 'Seleccione',
+        '' => 'Seleccione un elemento de la lista',
         1  => 'Administrador',
         2  => 'Socio',
         3  => 'Vendedor'
@@ -22,7 +22,7 @@ final class UtilEnum {
      * @var mixed
      */
     public static $ARR_CATEGORIES = [
-        '' => 'Seleccione',
+        '' => 'Seleccione un elemento de la lista',
         1  => 'Economía',
         2  => 'Polítca',
         3  => 'Literatura',
